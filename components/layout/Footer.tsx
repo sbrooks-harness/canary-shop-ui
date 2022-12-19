@@ -5,6 +5,7 @@ import {
   Divider,
   Grid,
   Header,
+  Icon,
   Image,
   List,
   Segment,
@@ -19,44 +20,37 @@ const Footer = () => {
     >
       <Container textAlign="center">
         <Grid divided inverted stackable>
-          <Grid.Column width={3}>
-            <Header inverted as="h4" content="Group 1" />
+          <Grid.Column width={4}>
+            <Header inverted as="h4" content="Company" />
             <List link inverted>
-              <List.Item as="a">Link One</List.Item>
-              <List.Item as="a">Link Two</List.Item>
-              <List.Item as="a">Link Three</List.Item>
-              <List.Item as="a">Link Four</List.Item>
+              <List.Item as="a">About</List.Item>
+              <List.Item as="a">Press & News</List.Item>
+              <List.Item as="a">Contact HQ</List.Item>
             </List>
           </Grid.Column>
-          <Grid.Column width={3}>
-            <Header inverted as="h4" content="Group 2" />
+          <Grid.Column width={4}>
+            <Header inverted as="h4" content="Resources" />
             <List link inverted>
-              <List.Item as="a">Link One</List.Item>
-              <List.Item as="a">Link Two</List.Item>
-              <List.Item as="a">Link Three</List.Item>
-              <List.Item as="a">Link Four</List.Item>
+              <List.Item as="a">Documentation</List.Item>
+              <List.Item as="a">FAQ</List.Item>
+              <List.Item as="a">Blog</List.Item>
+              <List.Item as="a">Community</List.Item>
             </List>
           </Grid.Column>
-          <Grid.Column width={3}>
-            <Header inverted as="h4" content="Group 3" />
-            <List link inverted>
-              <List.Item as="a">Link One</List.Item>
-              <List.Item as="a">Link Two</List.Item>
-              <List.Item as="a">Link Three</List.Item>
-              <List.Item as="a">Link Four</List.Item>
-            </List>
-          </Grid.Column>
-          <Grid.Column width={7}>
-            <Header inverted as="h4" content="Footer Header" />
-            <p>
-              Extra space for a call to action inside the footer that could help
-              re-engage users.
-            </p>
+          <Grid.Column width={8}>
+            <Header inverted as="h4" content="Canary Shop - by Harness" />
+            <Icon name="github" size="big" />
+            <Icon name="linkedin" size="big" />
+            <Icon name="facebook" size="big" />
+            <Icon name="twitter" size="big" />
+            <Icon name="instagram" size="big" />
+            <p></p>
+            <p>Ⓒ 2022 Harness Inc.</p>
           </Grid.Column>
         </Grid>
 
         <Divider inverted section />
-        <Image centered size="mini" src="/logo.png" />
+        <Image centered size="mini" src="/images/harness-logo.png" />
         <List horizontal inverted divided link size="small">
           <List.Item as="a" href="#">
             Site Map

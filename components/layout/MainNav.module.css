@@ -1,3 +1,8 @@
 .menuIcon {
   padding: 0 !important;
 }
+
+.harnessLogo {
+  max-width: 100%;
+  max-height: 100%;
+}

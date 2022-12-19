@@ -1,6 +1,6 @@
 import { isPropertySignature } from "typescript";
 import Link from "next/link";
-import { Dropdown, Icon, Input, Menu } from "semantic-ui-react";
+import { Dropdown, Icon, Image, Input, Menu } from "semantic-ui-react";
 import classes from "./MainNav.module.css";
 
 const MainNav = (props: any) => {
@@ -13,13 +13,16 @@ const MainNav = (props: any) => {
   return (
     <div>
       <Menu pointing secondary>
+        <Menu.Item>
+          <Image ui size="mini" src="/images/harness-logo.png"></Image>
+        </Menu.Item>
         <Menu.Item
           name="home"
           //   active={activeItem === "home"}
           //   onClick={this.handleItemClick}
         />
         <Menu.Item
-          name="messages"
+          name="Shop"
           //   active={activeItem === "messages"}
           //   onClick={this.handleItemClick}
         />
