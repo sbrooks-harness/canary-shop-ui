@@ -20,3 +20,7 @@
 .menuItem {
   font-size: large !important;
 }
+
+.pageTitle {
+  padding: 1em;
+}

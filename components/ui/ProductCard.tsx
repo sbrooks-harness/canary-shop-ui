@@ -3,27 +3,35 @@ import { Card, Container, Icon, Image } from "semantic-ui-react";
 import classes from "./ProductCard.module.css";
 
 const ProductCard = (props: any) => {
-  const link = `/customers/${props.companyId}`;
+  const link = `/products/${props.companyId}`;
+  const { id, title, description, price, brand, category, imgSrc } = props;
 
   return (
     <Link href={link}>
       <Container>
         <Card className={classes.card}>
-          <Image src="/images/harness-logo.png" wrapped ui={false} />
+          <Image
+            className={classes.productImage}
+            size="big"
+            src={imgSrc}
+            wrapped
+            fluid
+            ui={true}
+          />
           <Card.Content>
-            <Card.Header>{props.companyName}</Card.Header>
+            <Card.Header>{title}</Card.Header>
             <Card.Meta>
-              <span className="date">Customer Since: {props.joinDate}</span>
+              <div>{props.description}</div>
             </Card.Meta>
             <Card.Description>
               <p>
-                <span className={classes.cardKey}>CSM:</span> {props.primaryCSM}
+                <span className={classes.cardKey}>Brand: {brand}</span>
               </p>
               <p>
-                <span className={classes.cardKey}>SA:</span> {props.primarySA}
+                <span className={classes.cardKey}>Category: {category}</span>
               </p>
               <p>
-                <span className={classes.cardKey}>SE:</span> {props.primarySE}
+                <span className={classes.cardKey}>Price: ${price}</span>
               </p>
             </Card.Description>
           </Card.Content>

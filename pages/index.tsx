@@ -80,7 +80,7 @@ export default function Home() {
                     width={50}
                     height={50}
                   />
-                  <b>Ray Winkle,</b> Chief Fun Officer Acme Toys
+                  <b>Ray Finkle,</b> Chief Fun Officer Acme Toys
                 </p>
               </Grid.Column>
             </Grid.Row>
