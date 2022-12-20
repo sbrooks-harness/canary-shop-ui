@@ -1,0 +1,13 @@
+.card {
+  float: left;
+  margin: 10px !important;
+  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+}
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 10px 20px 2px rgba(0, 0, 0, 0.25);
+}
+
+.cardKey {
+  font-weight: bold;
+}

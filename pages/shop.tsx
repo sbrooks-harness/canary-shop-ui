@@ -1,5 +1,11 @@
+import ProductCard from "../components/ui/ProductCard";
+
 const ShopPage = () => {
-  return <div>Shop Content Goes Here!!</div>;
+  return (
+    <div>
+      <ProductCard />
+    </div>
+  );
 };
 
 export default ShopPage;

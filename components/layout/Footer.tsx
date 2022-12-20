@@ -1,4 +1,4 @@
-import classes from "./footer.module.css";
+import classes from "./Footer.module.css";
 
 import {
   Container,
