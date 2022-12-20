@@ -5,10 +5,10 @@ import classes from "./MainNav.module.css";
 
 const MainNav = (props: any) => {
   const accountTrigger = (
-    <Icon className={classes.menuIcon} name="user outline" />
+    <Icon name="user outline" size="large" className={classes.menuIcon} />
   );
 
-  const cartTrigger = <Icon name="shopping cart" />;
+  const cartTrigger = <Icon name="shopping cart" size="large" />;
 
   return (
     <div>
@@ -18,37 +18,56 @@ const MainNav = (props: any) => {
         </Menu.Item>
         <Menu.Item
           name="home"
+          className="textBlock"
+          as={Link}
+          href="/"
           //   active={activeItem === "home"}
           //   onClick={this.handleItemClick}
         />
         <Menu.Item
           name="Shop"
+          className="textBlock"
+          as={Link}
+          href="/shop"
           //   active={activeItem === "messages"}
           //   onClick={this.handleItemClick}
         />
         <Menu.Item
-          name="friends"
+          name="blog"
+          className="textBlock"
+          as={Link}
+          href="/blog"
           //   active={activeItem === "friends"}
           //   onClick={this.handleItemClick}
         />
         <Menu.Menu position="right">
-          <Menu.Item>
+          <Menu.Item className="menuItem">
             <Input icon="search" placeholder="Search..." />
           </Menu.Item>
           <Menu.Item className={classes.menuIcon}>
             <Dropdown item trigger={cartTrigger}>
               <Dropdown.Menu>
-                <Dropdown.Item>Go to cart</Dropdown.Item>
-                <Dropdown.Item>Checkout</Dropdown.Item>
+                <Dropdown.Item as={Link} href="/cart">
+                  Go to cart
+                </Dropdown.Item>
+                <Dropdown.Item as={Link} href="/checkout">
+                  Checkout
+                </Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>
           </Menu.Item>
           <Menu.Item className={classes.menuIcon}>
             <Dropdown item trigger={accountTrigger}>
               <Dropdown.Menu>
-                <Dropdown.Item>Account</Dropdown.Item>
-                <Dropdown.Item>Settings</Dropdown.Item>
-                <Dropdown.Item>Log Out</Dropdown.Item>
+                <Dropdown.Item as={Link} href="/profile">
+                  Account
+                </Dropdown.Item>
+                <Dropdown.Item as={Link} href="/settings">
+                  Settings
+                </Dropdown.Item>
+                <Dropdown.Item as={Link} href="/logout">
+                  Log Out
+                </Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>
           </Menu.Item>

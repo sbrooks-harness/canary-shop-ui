@@ -7,3 +7,16 @@
   flex-direction: column;
   min-height: 100vh;
 }
+
+.textBlock {
+  font-size: large;
+}
+
+.textPadding {
+  padding: 20px;
+  margin: 20px;
+}
+
+.menuItem {
+  font-size: large !important;
+}

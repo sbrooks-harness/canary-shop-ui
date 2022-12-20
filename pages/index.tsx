@@ -2,7 +2,7 @@ import Head from "next/head";
 import Image from "next/image";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
-import { Card, Container } from "semantic-ui-react";
+import { Card, Container, Grid, Header, Segment } from "semantic-ui-react";
 import { Fragment } from "react";
 
 export default function Home() {
@@ -14,7 +14,7 @@ export default function Home() {
         showThumbs={false}
         showStatus={false}
         autoPlay={true}
-        interval={5000}
+        interval={7000}
         infiniteLoop={true}
         stopOnHover={false}
       >
@@ -25,7 +25,7 @@ export default function Home() {
           <img src="images/carousel-code.png" />
         </div>
       </Carousel>
-      <Container>
+      <Container className="textBlock textPadding">
         <p>
           Spicy jalapeno bacon ipsum dolor amet corned beef shoulder ball tip
           bresaola ham turducken. Chuck jowl venison shankle leberkas hamburger
@@ -58,6 +58,34 @@ export default function Home() {
           filet mignon t-bone capicola jerky chicken shank beef ribs doner.
           Meatloaf kielbasa ham hock, t-bone shankle sirloin turkey pork loin.
         </p>
+        <Segment style={{ padding: "0em" }} vertical>
+          <Grid celled="internally" columns="equal" stackable>
+            <Grid.Row textAlign="center">
+              <Grid.Column style={{ paddingBottom: "5em", paddingTop: "5em" }}>
+                <Header as="h3" style={{ fontSize: "2em" }}>
+                  "What a Company"
+                </Header>
+                <p style={{ fontSize: "1.33em" }}>
+                  That is what they all say about us
+                </p>
+              </Grid.Column>
+              <Grid.Column style={{ paddingBottom: "5em", paddingTop: "5em" }}>
+                <Header as="h3" style={{ fontSize: "2em" }}>
+                  "I shouldn't have gone with their competitor."
+                </Header>
+                <p style={{ fontSize: "1.33em" }}>
+                  <Image
+                    alt="PhotoGoesHere"
+                    src="/images/harness-logo.png"
+                    width={50}
+                    height={50}
+                  />
+                  <b>Ray Winkle,</b> Chief Fun Officer Acme Toys
+                </p>
+              </Grid.Column>
+            </Grid.Row>
+          </Grid>
+        </Segment>
       </Container>
     </Fragment>
   );
