@@ -3,8 +3,8 @@ import { Card, Container, Icon, Image } from "semantic-ui-react";
 import classes from "./ProductCard.module.css";
 
 const ProductCard = (props: any) => {
-  const link = `/products/${props.companyId}`;
   const { id, title, description, price, brand, category, imgSrc } = props;
+  const link = `/products/${id}`;
 
   return (
     <Link href={link}>
@@ -15,7 +15,6 @@ const ProductCard = (props: any) => {
             size="big"
             src={imgSrc}
             wrapped
-            fluid
             ui={true}
           />
           <Card.Content>

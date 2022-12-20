@@ -576,3 +576,7 @@ const productList = [
 ];
 
 export default productList;
+
+export function getProductById(searchedId) {
+  return productList.find((product) => product.id === searchedId);
+}

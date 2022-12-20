@@ -71,7 +71,7 @@ export default function Home() {
               </Grid.Column>
               <Grid.Column style={{ paddingBottom: "5em", paddingTop: "5em" }}>
                 <Header as="h3" style={{ fontSize: "2em" }}>
-                  "I shouldn't have gone with their competitor."
+                  "Laces out!"
                 </Header>
                 <p style={{ fontSize: "1.33em" }}>
                   <Image
@@ -80,7 +80,7 @@ export default function Home() {
                     width={50}
                     height={50}
                   />
-                  <b>Ray Finkle,</b> Chief Fun Officer Acme Toys
+                  <b>Ray Finkle,</b> Chief Kicker
                 </p>
               </Grid.Column>
             </Grid.Row>

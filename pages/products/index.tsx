@@ -1,7 +1,7 @@
 import { Container, Grid } from "semantic-ui-react";
 import { classicNameResolver } from "typescript";
-import ProductCard from "../components/ui/ProductCard";
-import productList from "../dummy-data/productList.js";
+import ProductCard from "../../components/ui/ProductCard";
+import productList from "../../dummy-data/productList.js";
 
 const ShopPage = (props: any) => {
   return (
@@ -15,6 +15,7 @@ const ShopPage = (props: any) => {
             <Grid.Column>
               <ProductCard
                 key={item.id}
+                id={item.id}
                 imgSrc={item.imgSrc}
                 title={item.title}
                 description={item.description}

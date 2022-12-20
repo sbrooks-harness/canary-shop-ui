@@ -1,5 +1,9 @@
 const LogoutPage = () => {
-  return <div>You have logged out!</div>;
+  return (
+    <center>
+      <h1 className="pageTitle">You have logged out.</h1>
+    </center>
+  );
 };
 
 export default LogoutPage;

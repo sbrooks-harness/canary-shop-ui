@@ -28,7 +28,7 @@ const MainNav = (props: any) => {
           name="Shop"
           className="textBlock"
           as={Link}
-          href="/shop"
+          href="/products"
           //   active={activeItem === "messages"}
           //   onClick={this.handleItemClick}
         />
