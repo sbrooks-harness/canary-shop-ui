@@ -12,7 +12,7 @@ const ShopPage = (props: any) => {
       <Grid columns={3}>
         <Grid.Row>
           {props.preppedProducts.map((item: any) => (
-            <Grid.Column>
+            <Grid.Column key={item.id}>
               <ProductCard
                 key={item.id}
                 id={item.id}
