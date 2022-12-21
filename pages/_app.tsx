@@ -10,14 +10,13 @@ import MainNav from "../components/layout/MainNav";
 import Footer from "../components/layout/Footer";
 
 export default function App({ Component, pageProps }: AppProps) {
-  const HARNESS_FF_KEY = "redacted";
-  const reactTarget = { name: "ReactClientSDK", identifier: "reactclientsdk" };
-  // const tacosEnabled = useFeatureFlag("CANARY_SHOP_TACO_MENU_ENABLED", false);
+  const HARNESS_FF_KEY = "609ed598-8dff-4294-8faf-cc950bacd171";
+  const reactTarget = { name: "Taco Test", identifier: "taco_test" };
 
   return (
-    <FFContextProvider async apiKey={HARNESS_FF_KEY} target={reactTarget}>
+    <FFContextProvider apiKey={HARNESS_FF_KEY} target={reactTarget}>
       <div className="content-wrapper">
-        <MainNav tacosEnabled={false} />
+        <MainNav />
         <Component {...pageProps} />
         <Footer />
       </div>
