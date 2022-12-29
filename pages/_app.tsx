@@ -8,6 +8,7 @@ import {
 } from "@harnessio/ff-react-client-sdk";
 import MainNav from "../components/layout/MainNav";
 import Footer from "../components/layout/Footer";
+import { CartListContextProvider } from "../contexts/cart-context";
 
 export default function App({ Component, pageProps }: AppProps) {
   const HARNESS_FF_KEY = "609ed598-8dff-4294-8faf-cc950bacd171";
@@ -15,11 +16,13 @@ export default function App({ Component, pageProps }: AppProps) {
 
   return (
     <FFContextProvider apiKey={HARNESS_FF_KEY} target={reactTarget}>
-      <div className="content-wrapper">
-        <MainNav />
-        <Component {...pageProps} />
-        <Footer />
-      </div>
+      <CartListContextProvider>
+        <div className="content-wrapper">
+          <MainNav />
+          <Component {...pageProps} />
+          <Footer />
+        </div>
+      </CartListContextProvider>
     </FFContextProvider>
   );
 }

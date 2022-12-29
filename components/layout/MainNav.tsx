@@ -3,16 +3,20 @@ import Link from "next/link";
 import { useFeatureFlag } from "@harnessio/ff-react-client-sdk";
 import { Dropdown, Icon, Image, Input, Menu } from "semantic-ui-react";
 import classes from "./MainNav.module.css";
+import { useContext } from "react";
+import CartList from "../../contexts/cart-context";
 
 const MainNav = (props: any) => {
-  const myFlag = useFeatureFlag("CANARY_SHOP_TACO_MENU_ENABLED");
-  console.log("Feature Flag: " + myFlag);
-
+  const myFlag = useFeatureFlag("canary_shop_taco_menu_enabled");
+  const cartCtx = useContext(CartList);
   const accountTrigger = (
     <Icon name="user outline" size="large" className={classes.menuIcon} />
   );
-
-  const cartTrigger = <Icon name="shopping cart" size="large" />;
+  const cartTrigger = (
+    <Icon name="shopping cart" size="large">
+      <span className={classes.cartBadge}>{cartCtx.cartItems.length}</span>
+    </Icon>
+  );
 
   return (
     <div>
@@ -29,21 +33,23 @@ const MainNav = (props: any) => {
           //   onClick={this.handleItemClick}
         />
         <Menu.Item
-          name="Shop"
+          name="Automation Library"
           className="textBlock"
           as={Link}
-          href="/products"
+          href="/library"
           //   active={activeItem === "messages"}
           //   onClick={this.handleItemClick}
         />
-        <Menu.Item
-          name="blog"
-          className="textBlock"
-          as={Link}
-          href="/blog"
-          //   active={activeItem === "friends"}
-          //   onClick={this.handleItemClick}
-        />
+        {myFlag ? (
+          <Menu.Item
+            name="loadGenerator"
+            className="textBlock"
+            as={Link}
+            href="load-generator"
+          />
+        ) : (
+          <></>
+        )}
         {myFlag ? (
           <Menu.Item
             name="Tacos"
@@ -54,6 +60,14 @@ const MainNav = (props: any) => {
         ) : (
           <></>
         )}
+        <Menu.Item
+          name="Docs"
+          className="textBlock"
+          as={Link}
+          href="/docs"
+          //   active={activeItem === "friends"}
+          //   onClick={this.handleItemClick}
+        />
         <Menu.Menu position="right">
           <Menu.Item className="menuItem">
             <Input icon="search" placeholder="Search..." />

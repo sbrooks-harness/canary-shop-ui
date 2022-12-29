@@ -7,7 +7,7 @@ const ShopPage = (props: any) => {
   return (
     <Container>
       <center>
-        <h1 className="pageTitle">Shop Our Products</h1>
+        <h1 className="pageTitle">Automation Library</h1>
       </center>
       <Grid columns={3}>
         <Grid.Row>
@@ -16,7 +16,8 @@ const ShopPage = (props: any) => {
               <ProductCard
                 key={item.id}
                 id={item.id}
-                imgSrc={item.imgSrc}
+                // imgSrc={item.imgSrc}
+                imgSrc="images/terraform-logo.webp"
                 title={item.title}
                 description={item.description}
                 brand={item.brand}

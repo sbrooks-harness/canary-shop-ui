@@ -1,13 +1,20 @@
 import Link from "next/link";
-import { Card, Container, Icon, Image } from "semantic-ui-react";
+import { useContext } from "react";
+import { Button, Card, Container, Icon, Image } from "semantic-ui-react";
 import classes from "./ProductCard.module.css";
+import CartList from "../../contexts/cart-context";
 
 const ProductCard = (props: any) => {
   const { id, title, description, price, brand, category, imgSrc } = props;
   const link = `/products/${id}`;
+  const cartCtx = useContext(CartList);
+
+  const cartAddHandler = () => {
+    cartCtx.addCartItem(id);
+  };
 
   return (
-    <Link href={link}>
+    // <Link href={link}>
       <Container>
         <Card className={classes.card}>
           <Image
@@ -20,7 +27,7 @@ const ProductCard = (props: any) => {
           <Card.Content>
             <Card.Header>{title}</Card.Header>
             <Card.Meta>
-              <div>{props.description}</div>
+              <div>{description}</div>
             </Card.Meta>
             <Card.Description>
               <p>
@@ -33,10 +40,13 @@ const ProductCard = (props: any) => {
                 <span className={classes.cardKey}>Price: ${price}</span>
               </p>
             </Card.Description>
+            <center>
+              <Button onClick={cartAddHandler}>Add to Cart</Button>
+            </center>
           </Card.Content>
         </Card>
       </Container>
-    </Link>
+    // </Link>
   );
 };
 

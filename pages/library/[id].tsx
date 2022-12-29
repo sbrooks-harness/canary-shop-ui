@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import { Fragment } from "react";
 import { Container } from "semantic-ui-react";
-import productList, { getProductById } from "../../dummy-data/productList";
+import { getProductById } from "../../dummy-data/productList";
 
 const ProductPage = () => {
   const router = useRouter();

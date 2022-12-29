@@ -1,8 +1,22 @@
+import { useContext } from "react";
+import { Button, Card, Container, Segment } from "semantic-ui-react";
+import CartItem from "../components/ui/CartItem";
+import CartList from "../contexts/cart-context";
+
 const CartPage = () => {
+  const cartCtx = useContext(CartList);
+  const currentCartList = cartCtx.cartItems;
+
   return (
-    <center>
-      <h1 className="pageTitle">Cart Content Goes Here!!</h1>
-    </center>
+    <Container>
+      <center>
+        <h1 className="pageTitle">Shopping Cart</h1>
+        <p>{cartCtx.cartItems}</p>
+      </center>
+      <Segment>
+        <CartItem />
+      </Segment>
+    </Container>
   );
 };
 
