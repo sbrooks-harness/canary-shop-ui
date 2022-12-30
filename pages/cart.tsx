@@ -11,7 +11,11 @@ const CartPage = () => {
     <Container>
       <center>
         <h1 className="pageTitle">Shopping Cart</h1>
-        <p>{cartCtx.cartItems}</p>
+        <p>
+          {cartCtx.cartItems.map((item) => {
+            return <div>{item.id}</div>;
+          })}
+        </p>
       </center>
       <Segment>
         <CartItem />

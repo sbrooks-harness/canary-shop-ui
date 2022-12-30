@@ -14,7 +14,9 @@ const MainNav = (props: any) => {
   );
   const cartTrigger = (
     <Icon name="shopping cart" size="large">
-      <span className={classes.cartBadge}>{cartCtx.cartItems.length}</span>
+      <span className={classes.cartBadge}>
+        {cartCtx.cartItems.length ? cartCtx.cartItems.length : "0"}
+      </span>
     </Icon>
   );
 

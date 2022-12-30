@@ -1,27 +1,25 @@
 import { createContext, useState } from "react";
 
 const CartList = createContext({
-  cartItems: [],
+  cartItems: [] as any[],
   addCartItem: (newItem: any) => {},
-  removeCartItem: (itemToRemove: any) => {},
+  removeCartItem: (itemToRemove: string) => {},
 });
 
 export const CartListContextProvider = (props: any) => {
-  const [currentCartItems, setCurrentCartItems] = useState<any>([]);
+  const [currentCartItems, setCurrentCartItems] = useState<any[]>([]);
 
-  const addCartItemHandler = (newItem: string) => {
+  const addCartItemHandler = (newItem: any) => {
     setCurrentCartItems((prevCartItems: any) => {
       return prevCartItems ? [...prevCartItems, newItem] : [newItem];
     });
   };
 
   const removeCartItemHandler = (itemToRemove: any) => {
-    setCurrentCartItems((prevCartItems: string[]) => {
-      const index = prevCartItems.indexOf(itemToRemove);
-      if (index > -1) {
-        prevCartItems.splice(index, 1);
-      }
+    let newCart = currentCartItems.filter((itemId) => {
+      return itemId !== itemToRemove;
     });
+    setCurrentCartItems(newCart);
   };
 
   const context = {
