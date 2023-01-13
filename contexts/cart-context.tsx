@@ -10,7 +10,7 @@ export const CartListContextProvider = (props: any) => {
   const [currentCartItems, setCurrentCartItems] = useState<any[]>([]);
 
   const addCartItemHandler = (newItem: any) => {
-    setCurrentCartItems((prevCartItems: any) => {
+    setCurrentCartItems((prevCartItems) => {
       return prevCartItems ? [...prevCartItems, newItem] : [newItem];
     });
   };
