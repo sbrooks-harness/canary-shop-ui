@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Card, Image } from "semantic-ui-react";
 import classes from "./blog.module.css";
 
-const BlogCard = (props: any) => {
+const BlogCard = (props) => {
   const linkPath = `/blog/${props.id}`;
 
   return (

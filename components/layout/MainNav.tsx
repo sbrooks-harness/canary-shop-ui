@@ -4,18 +4,18 @@ import { useFeatureFlag } from "@harnessio/ff-react-client-sdk";
 import { Dropdown, Icon, Image, Input, Menu } from "semantic-ui-react";
 import classes from "./MainNav.module.css";
 import { useContext } from "react";
-import CartList from "../../contexts/cart-context";
+// import CartList from "../../contexts/cart-context";
 
-const MainNav = (props: any) => {
+const MainNav = () => {
   const myFlag = useFeatureFlag("canary_shop_taco_menu_enabled");
-  const cartCtx = useContext(CartList);
+  // const cartCtx = useContext(CartList);
   const accountTrigger = (
     <Icon name="user outline" size="large" className={classes.menuIcon} />
   );
   const cartTrigger = (
     <Icon name="shopping cart" size="large">
       <span className={classes.cartBadge}>
-        {cartCtx.cartItems.length ? cartCtx.cartItems.length : "0"}
+        {/* {cartCtx.cartItems.length ? cartCtx.cartItems.length : "0"} */}
       </span>
     </Icon>
   );

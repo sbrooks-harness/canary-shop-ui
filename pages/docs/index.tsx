@@ -2,7 +2,7 @@ import { Card, Container, Image } from "semantic-ui-react";
 import BlogCard from "../../components/ui/BlogCard";
 import blogList from "../../dummy-data/blogList.js";
 
-const BlogPage = () => {
+const BlogPage: React.FC = () => {
   return (
     <>
       <center>

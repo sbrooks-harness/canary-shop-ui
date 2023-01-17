@@ -2,25 +2,22 @@ import Link from "next/link";
 import { useContext, useEffect, useState } from "react";
 import { Button, Card, Container, Icon, Image } from "semantic-ui-react";
 import classes from "./ProductCard.module.css";
-import CartList from "../../contexts/cart-context";
+import { Product } from "../../type/index";
+import { CartList } from "../../pages/_app";
 
-const ProductCard = (props: any) => {
-  const { id, title, description, price, brand, category, imgSrc } = props;
+const ProductCard: React.FC<Product> = (product) => {
+  const { id, title, description, price, brand, category, imgSrc } = product;
   const link = `/products/${id}`;
   const cartCtx = useContext(CartList);
-  const [isItemInCart, setIsItemInCart] = useState(
-    cartCtx.cartItems.includes(JSON.stringify(id))
-  );
 
-  const cartAddHandler = () => {
-    cartCtx.addCartItem(props);
-    setIsItemInCart(true);
-  };
+  const [isItemSelected, setItemSelected] = useState<boolean>(false);
 
-  const cartRemoveHandler = () => {
-    cartCtx.removeCartItem(props);
-    setIsItemInCart(false);
-  };
+  useEffect(() => {
+    const isCurrItemSelected = !!cartCtx.cartItems.find(
+      (item) => item.id === id
+    );
+    setItemSelected(isCurrItemSelected);
+  }, [cartCtx.cartItems.length]);
 
   return (
     // <Link href={link}>
@@ -50,10 +47,14 @@ const ProductCard = (props: any) => {
             </p>
           </Card.Description>
           <center>
-            {isItemInCart ? (
-              <Button onClick={cartRemoveHandler}>Remove From Cart</Button>
+            {isItemSelected ? (
+              <Button onClick={() => cartCtx.removeCartItem(id)}>
+                Remove From Cart
+              </Button>
             ) : (
-              <Button onClick={cartAddHandler}>Add to Cart</Button>
+              <Button onClick={() => cartCtx.addCartItem(product)}>
+                Add to Cart
+              </Button>
             )}
           </center>
         </Card.Content>

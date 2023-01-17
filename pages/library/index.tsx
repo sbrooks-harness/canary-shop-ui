@@ -1,9 +1,19 @@
+import { useEffect } from "react";
 import { Container, Grid } from "semantic-ui-react";
 import { classicNameResolver } from "typescript";
 import ProductCard from "../../components/ui/ProductCard";
 import productList from "../../dummy-data/productList.js";
+import { Product } from "../../type/index";
 
-const ShopPage = (props: any) => {
+interface ProductList {
+  preppedProducts: Product[];
+}
+
+const ShopPage: React.FC<ProductList> = (props) => {
+  useEffect(() => {
+    console.log("props", props);
+  }, [props]);
+
   return (
     <Container>
       <center>
@@ -11,20 +21,17 @@ const ShopPage = (props: any) => {
       </center>
       <Grid columns={3}>
         <Grid.Row>
-          {props.preppedProducts.map((item: any) => (
-            <Grid.Column key={item.id}>
-              <ProductCard
-                key={item.id}
-                id={item.id}
-                // imgSrc={item.imgSrc}
-                imgSrc="images/terraform-logo.webp"
-                title={item.title}
-                description={item.description}
-                brand={item.brand}
-                category={item.category}
-                price={item.price}
-              />
-            </Grid.Column>
+          {props.preppedProducts.map((item) => (
+            <ProductCard
+              id={item.id}
+              key={`product-item-${item.id + Math.floor(Math.random()) * 60}`}
+              imgSrc="images/terraform-logo.webp"
+              title={item.title}
+              description={item.description}
+              brand={item.brand}
+              category={item.category}
+              price={item.price}
+            />
           ))}
         </Grid.Row>
       </Grid>
