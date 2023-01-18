@@ -3,7 +3,7 @@ import { useContext, useEffect, useState } from "react";
 import { Button, Card, Container, Icon, Image } from "semantic-ui-react";
 import classes from "./ProductCard.module.css";
 import { Product } from "../../type/index";
-import { CartList } from "../../pages/_app";
+import { CartList } from "../../contexts/cart-context";
 
 const ProductCard: React.FC<Product> = (product) => {
   const { id, title, description, price, brand, category, imgSrc } = product;
@@ -12,12 +12,12 @@ const ProductCard: React.FC<Product> = (product) => {
 
   const [isItemSelected, setItemSelected] = useState<boolean>(false);
 
-  useEffect(() => {
-    const isCurrItemSelected = !!cartCtx.cartItems.find(
-      (item) => item.id === id
-    );
-    setItemSelected(isCurrItemSelected);
-  }, [cartCtx.cartItems.length]);
+  // useEffect(() => {
+  //   const isCurrItemSelected = !!cartCtx.cartItems.find(
+  //     (item) => item.id === id
+  //   );
+  //   setItemSelected(isCurrItemSelected);
+  // }, [cartCtx.cartItems.length]);
 
   return (
     // <Link href={link}>
@@ -48,7 +48,7 @@ const ProductCard: React.FC<Product> = (product) => {
           </Card.Description>
           <center>
             {isItemSelected ? (
-              <Button onClick={() => cartCtx.removeCartItem(id)}>
+              <Button onClick={() => cartCtx.removeCartItem(product.id)}>
                 Remove From Cart
               </Button>
             ) : (

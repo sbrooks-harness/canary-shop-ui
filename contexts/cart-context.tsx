@@ -1,44 +1,33 @@
-import React from "react";
 import { createContext, useState } from "react";
-import { Props } from "react-responsive-carousel/lib/ts/components/Thumbs";
 import { CartListContext, Product } from "../type";
 
-const initContextValue: CartListContext = {
-  cartItems: [],
-  addCartItem: (newItem: Product) => undefined,
-  removeCartItem: (productId: number) => undefined,
-};
+export const CartList = createContext<CartListContext>({} as CartListContext);
 
-const CartList = createContext<CartListContext>(initContextValue);
+interface CartContextProps {
+  children?: React.ReactNode;
+}
 
-export const CartListContextProvider = (props: Props) => {
+const CartListContextProvider: React.FC<CartContextProps> = ({ children }) => {
   const [cartItems, setCartItems] = useState<Product[]>([]);
 
-  React.useEffect(() => {
-    console.log("cartItems", cartItems);
-  }, [cartItems]);
-
-  const addCartItemHandler = (newItem: Product) => {
+  const addItem = (newItem: Product) => {
+    console.log("Item Added: " + newItem);
     const items = [...cartItems];
     items.push(newItem);
     setCartItems(items);
   };
 
-  const removeCartItemHandler = (productId: number) => {
-    const newList = [...cartItems].filter((item) => item.id !== productId);
-    setCartItems(newList);
+  const removeItem = (productId: number) => {
+    console.log("Item Removed: " + productId);
   };
 
-  const context = {
+  const cartContext = {
     cartItems,
-    addCartItem: addCartItemHandler,
-    removeCartItem: removeCartItemHandler,
+    addCartItem: addItem,
+    removeCartItem: removeItem,
   };
 
-  return (
-    <CartList.Provider value={context}>{props.children}</CartList.Provider>
-  );
+  return <CartList.Provider value={cartContext}>{children}</CartList.Provider>;
 };
 
-export const AppContext = createContext({} as CartListContext);
-export default CartList;
+export default CartListContextProvider;
