@@ -33,4 +33,4 @@ pipeline:
                     connectorRef: org.sbrooksharnessdockerhub
                     repo: sbrooksharness/canary-shop-ui
                     tags:
-                      - <+pipeline.executionId>
+                      - <+pipeline.sequenceId>
