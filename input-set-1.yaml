@@ -1,0 +1,14 @@
+inputSet:
+  name: canary-shop-ui
+  identifier: canaryshopui
+  orgIdentifier: default
+  projectIdentifier: Canary_Shop
+  pipeline:
+    identifier: canaryshopui
+    properties:
+      ci:
+        codebase:
+          build:
+            type: branch
+            spec:
+              branch: <+trigger.branch>
