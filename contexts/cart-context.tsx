@@ -12,19 +12,28 @@ const CartListContextProvider: React.FC<CartContextProps> = ({ children }) => {
 
   const addItem = (newItem: Product) => {
     console.log("Item Added: " + newItem);
-    const items = [...cartItems];
-    items.push(newItem);
-    setCartItems(items);
+
+    const itemToAdd = { ...newItem };
+    itemToAdd.isInCart = true;
+
+    const newCartItems = [...cartItems, itemToAdd];
+    setCartItems(newCartItems);
+    console.log("New Cart: " + newCartItems);
   };
 
-  const removeItem = (productId: number) => {
+  const removeItem = (productId: Product) => {
     console.log("Item Removed: " + productId);
+    const index = cartItems.indexOf(productId);
+    if (index > -1) {
+      cartItems.splice(index, 1);
+    }
+    console.log("New List: " + cartItems);
   };
 
   const cartContext = {
     cartItems,
-    addCartItem: addItem,
-    removeCartItem: removeItem,
+    addItem,
+    removeItem,
   };
 
   return <CartList.Provider value={cartContext}>{children}</CartList.Provider>;

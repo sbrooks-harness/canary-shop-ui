@@ -15,8 +15,6 @@ const App = ({ Component, pageProps }: AppProps) => {
     identifier: "sean.brooks@harness.io",
   };
 
-  // const [cartItems, setCartItems] = useState<Product[]>([]);
-
   return (
     <FFContextProvider apiKey={HARNESS_FF_KEY} target={harnessFFTarget}>
       <CartListContextProvider>

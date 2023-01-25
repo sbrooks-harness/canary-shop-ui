@@ -6,12 +6,16 @@ import { Product } from "../../type/index";
 import { CartList } from "../../contexts/cart-context";
 
 const ProductCard: React.FC<Product> = (product) => {
-  const { id, title, description, price, brand, category, imgSrc } = product;
+  const { id, title, description, price, brand, category, imgSrc, isInCart } =
+    product;
   const link = `/products/${id}`;
   const cartCtx = useContext(CartList);
 
   const [isItemSelected, setItemSelected] = useState<boolean>(false);
 
+  useEffect(() => {
+
+  }, [isItemSelected]);
   // useEffect(() => {
   //   const isCurrItemSelected = !!cartCtx.cartItems.find(
   //     (item) => item.id === id
@@ -47,12 +51,12 @@ const ProductCard: React.FC<Product> = (product) => {
             </p>
           </Card.Description>
           <center>
-            {isItemSelected ? (
-              <Button onClick={() => cartCtx.removeCartItem(product.id)}>
+            {isInCart ? (
+              <Button onClick={() => cartCtx.removeItem(product)}>
                 Remove From Cart
               </Button>
             ) : (
-              <Button onClick={() => cartCtx.addCartItem(product)}>
+              <Button onClick={() => cartCtx.addItem(product)}>
                 Add to Cart
               </Button>
             )}

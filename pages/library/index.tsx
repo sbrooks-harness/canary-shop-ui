@@ -31,6 +31,7 @@ const ShopPage: React.FC<ProductList> = (props) => {
               brand={item.brand}
               category={item.category}
               price={item.price}
+              isInCart={item.isInCart}
             />
           ))}
         </Grid.Row>

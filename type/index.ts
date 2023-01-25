@@ -6,10 +6,11 @@ export interface Product {
   brand: string;
   category: string;
   imgSrc: string;
+  isInCart: boolean;
 }
 
 export interface CartListContext {
   cartItems: Product[];
-  addCartItem: (newItem: Product) => void;
-  removeCartItem: (productId: number) => void;
+  addItem: (newItem: Product) => void;
+  removeItem: (productId: Product) => void;
 }
